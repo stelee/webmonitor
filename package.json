@@ -1,0 +1,17 @@
+{
+	"name" : "webmonitor",
+	"description" : "A simple application to check the up time of the websites",
+	"version" : "0.0.1",
+	"author" : "Yang Li",
+	"homepage" : "https://github.com/stelee/webmonitor",
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/stelee/webmonitor.git"	
+	},
+	 "dependencies" : {
+	 	"nodemailer" : ">=0.6.1"
+	 },
+	 "engines": {
+	    "node": ">=0.6.0"
+	  }
+}
