@@ -10,7 +10,11 @@ var http=require('http'),
 
 
 var urls=config.urls;
-var mailer=new Mailer(config.mail.username,config.mail.password);
+var mailer=new Mailer(config.mail.service,
+		config.mail.receiver,
+		config.mail.sender,
+		config.mail.username,
+		config.mail.password);
 
 logger.log("=================START UP-TIME MONOTOR v0.0.1 ===================")
 

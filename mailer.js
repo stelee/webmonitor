@@ -1,25 +1,27 @@
 var nodemailer=require("nodemailer");
-var reciever="stephen.liy@gmail.com, trigger@ifttt.com"
+var iftttAccount="trigger@ifttt.com";
 
-var Mailer=function(username,password){
+var Mailer=function(service,receivers,sender,username,password){
 	this.smtpTransport=nodemailer.createTransport("SMTP",
 	{
-		service:"Hotmail",
+		service:service,
 		auth:
 		{
 			user:username,
 			pass:password
 		}
 	});
+	this.receivers=receivers;
+	this.sender=sender;
 }
 
 Mailer.prototype.sendMail=function(subject,msg,onFailed,onSuccess)
 {
 	this.smtpTransport.sendMail(
 	{
-		from:"noreply@leesoft.ca",
-		to:"stephen.liy@gmail.com",
-		bcc:"trigger@ifttt.com",
+		from:this.sender,
+		to:this.receivers,
+		bcc:iftttAccount,
 		subject:subject,
 		text:msg
 	},function(error,response){
